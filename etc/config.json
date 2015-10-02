@@ -1,0 +1,13 @@
+{
+   "challonge_credentials": {
+      "token": "some_token",
+      "username": "challonger_bot"
+   },
+   "challonger": {
+      "channels": ["#challonger_channel"]
+   },
+   "plugins": [
+      "challonger"
+   ],
+   "utc_offset": -5
+}
