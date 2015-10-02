@@ -157,6 +157,28 @@ class Match(object):
             "score": self.scores,
         }
 
+    def has_any(self, *users):
+        return len(self & set(users)) > 0
+
+    def __users__(self):
+        return set(
+            reduce(lambda u, p: u + p.slack_users, self.participants, []))
+
+    def __sub__(self, other):
+        return self.__users__() - set(other)
+
+    def __and__(self, other):
+        return self.__users__() & set(other)
+
+    def __rand__(self, other):
+        return set(other) & self.__users__()
+
+    def __xor__(self, other):
+        return self.__users__() ^ set(other)
+
+    def __rxor__(self, other):
+        return set(other) ^ self.__users__()
+
     def __gt__(self, timestamp):
         return self.updated_at > parse_time(timestamp)
 

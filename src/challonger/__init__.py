@@ -9,3 +9,4 @@ challonge.set_credentials(
 
 __import__("challonger.commands")
 __import__("challonger.state")
+__import__("challonger.scheduler")
