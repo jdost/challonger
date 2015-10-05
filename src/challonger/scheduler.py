@@ -1,5 +1,5 @@
 from app import bot, config
-from challonger import state
+from . import state
 
 channels = config["challonger"]["channels"]
 LUNCH = "lunch"

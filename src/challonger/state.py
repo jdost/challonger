@@ -4,7 +4,7 @@ from lazbot.utils import lookup_channel
 import lazbot.logger as logger
 from datetime import datetime, timedelta
 
-from challonger.models import Participant, Match
+from .models import Participant, Match
 
 players = {}
 matches = {}

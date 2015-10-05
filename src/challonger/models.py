@@ -101,7 +101,7 @@ class Match(object):
 
     def set_open(self):
         player1, player2 = self.raw["player1-id"], self.raw["player2-id"]
-        from challonger.state import get_participants
+        from .state import get_participants
         self.participants = get_participants(player1, player2)
         self.state = Match.OPEN
 
@@ -111,7 +111,7 @@ class Match(object):
     def set_complete(self):
         winner, loser = self.raw["winner-id"], self.raw["loser-id"]
         scores = self.raw["scores-csv"]
-        from challonger.state import get_participants
+        from .state import get_participants
         self.winner, self.loser = get_participants(winner, loser)
         self.participants = [self.winner, self.loser]
         self.scores = self.parse_scores(scores)
