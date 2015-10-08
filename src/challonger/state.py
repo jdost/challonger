@@ -57,8 +57,15 @@ def load_info(*_):
 def check_for_updates():
     global last_update
     changes = 0
+    matches = []
 
-    for match_data in challonge.matches.index(default_tournament["id"]):
+    try:
+        matches = challonge.matches.index(default_tournament["id"])
+    except Exception as error:
+        logger.error("Error connecting: %s", error)
+        return
+
+    for match_data in matches:
         match = get_match(match_data["id"])
         update = match.update(match_data)
         if update:
