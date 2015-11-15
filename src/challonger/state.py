@@ -30,7 +30,7 @@ def lookup_participant(user):
 
 
 @bot.setup
-def load_info(*_):
+def load_info(*args, **kwargs):
     global tournaments
     global default_tournament
     global players
